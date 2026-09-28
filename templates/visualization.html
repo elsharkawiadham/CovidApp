@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/visualization.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">COVID-19</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Visualization</a></li>
+            <li><a href="contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="controls">
+    <select id="metric">
+        <option value="cases">Cases</option>
+        <option value="deaths">Deaths</option>
+    </select>
+
+    <select id="continent">
+        <option value="All">All</option>
+        <option value="Europe">Europe</option>
+        <option value="Asia">Asia</option>
+        <option value="Africa">Africa</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Oceania">Oceania</option>
+    </select>
+
+    <button id="resetZoom">Reset</button>
+</div>
+<div class="legend">
+    <span>Low</span>
+
+    <div class="box" style="background:#f0ff00"></div>
+    <div class="box" style="background:#ffce00"></div>
+    <div class="box" style="background:#ff9a00"></div>
+    <div class="box" style="background:#ff5a00"></div>
+    <div class="box" style="background:#ff0000"></div>
+
+    <span>High</span>
+</div>
+<div id="map"></div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3>How to Use</h3>
+        <p>
+            Hover to see data<br>
+            Click to zoom<br>
+            Use scroll to zoom
+        </p>
+        <button id="closePopup">OK</button>
+    </div>
+</div>
+
+<script src="/static/js/script.js"></script>
+</body>
+</html>

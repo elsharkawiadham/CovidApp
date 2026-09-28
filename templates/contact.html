@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/contact.css">
+</head>
+<body>
+
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">COVID-19</a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="visualization">Visualization</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <form id="contactForm" class="contact-card">
+        <p>Fill the form to keep in touch with new updates</p>
+        <input name="name" placeholder="Name" required>
+        <input name="email" placeholder="Email" required type="email">
+        <textarea name="message" placeholder="Message" required maxlength="100" minlength="10"></textarea>
+        <button type="submit">Send</button>
+        <div id="successMsg" class="success-message" style="display:none;">Message sent successfully!</div>
+    </form>
+</div>
+
+<script>
+const form = document.getElementById("contactForm");
+const successMsg = document.getElementById("successMsg");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const response = await fetch("/contact", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        successMsg.style.display = "block";
+        form.reset();
+    }
+});
+</script>
+
+</body>
+</html>
